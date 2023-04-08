@@ -2,7 +2,7 @@ import { z } from "zod";
 
 import {
   createTRPCRouter,
-  protectedProdecure,
+  protectedProcedure,
   publicProcedure,
 } from "~/server/api/trpc";
 
@@ -19,7 +19,7 @@ export const listingsRouter = createTRPCRouter({
         },
       });
     }),
-  getMessage: protectedProdecure.query(async ({ input, ctx }) => {
+  getMessage: protectedProcedure.query(async ({ input, ctx }) => {
     const userId = ctx.auth.userId;
     const listing = await ctx.prisma.listing.findMany({
       where: {
@@ -31,10 +31,9 @@ export const listingsRouter = createTRPCRouter({
     });
     return listing.flatMap((item) => item.message);
   }),
-  sendMessage: protectedProdecure
+  sendMessage: protectedProcedure
     .input(z.object({ message: z.string(), listingId: z.string() }))
     .mutation(async ({ input, ctx }) => {
-      console.log(ctx.auth.user);
       const message = await ctx.prisma.message.create({
         data: {
           fromUser: ctx.auth.userId,
@@ -45,7 +44,7 @@ export const listingsRouter = createTRPCRouter({
       });
       return message;
     }),
-  create: protectedProdecure
+  create: protectedProcedure
     .input(
       z.object({ name: z.string(), description: z.string(), price: z.number() })
     )
