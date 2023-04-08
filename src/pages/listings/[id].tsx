@@ -52,7 +52,6 @@ const ListingView: NextPage = () => {
                     listingId: listingItem.id,
                   })
                   .then(() => {
-                    console.log("we are here");
                     reset();
                   });
               })}
