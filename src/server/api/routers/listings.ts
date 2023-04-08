@@ -1,8 +1,15 @@
 import { z } from "zod";
 
-import { createTRPCRouter, protectedProdecure } from "~/server/api/trpc";
+import {
+  createTRPCRouter,
+  protectedProdecure,
+  publicProcedure,
+} from "~/server/api/trpc";
 
 export const listingsRouter = createTRPCRouter({
+  list: publicProcedure.query(({ ctx }) => {
+    return ctx.prisma.listing.findMany();
+  }),
   create: protectedProdecure
     .input(
       z.object({ name: z.string(), description: z.string(), price: z.number() })
