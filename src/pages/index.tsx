@@ -1,6 +1,7 @@
 import { type Listing } from "@prisma/client";
 import { type NextPage } from "next";
 import Head from "next/head";
+import Link from "next/link";
 import { api } from "~/utils/api";
 
 function Card({ listing }: { listing: Listing }) {
@@ -22,8 +23,8 @@ function Card({ listing }: { listing: Listing }) {
         <p className="mb-3 h-28 font-normal text-gray-700 dark:text-gray-400">
           {listing.description}
         </p>
-        <a
-          href="#"
+        <Link
+          href={`/listings/${listing.id}`}
           className="inline-flex items-center rounded-lg bg-blue-700 px-3 py-2 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
         >
           View
@@ -40,7 +41,7 @@ function Card({ listing }: { listing: Listing }) {
               clip-rule="evenodd"
             ></path>
           </svg>
-        </a>
+        </Link>
       </div>
     </div>
   );

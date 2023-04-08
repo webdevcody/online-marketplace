@@ -11,11 +11,21 @@ datasource db {
 }
 
 model Listing {
-    id          String   @id @default(cuid())
+    id          String    @id @default(cuid())
     userId      String
-    createdAt   DateTime @default(now())
-    updatedAt   DateTime @updatedAt
+    createdAt   DateTime  @default(now())
+    updatedAt   DateTime  @updatedAt
     name        String
     description String
     price       Float
+    message     Message[]
+}
+
+model Message {
+    id           String  @id @default(cuid())
+    fromUser     String
+    fromUserName String
+    listingId    String
+    message      String
+    listing      Listing @relation(fields: [listingId], references: [id])
 }

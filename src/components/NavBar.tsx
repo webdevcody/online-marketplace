@@ -14,7 +14,7 @@ export function NavBar() {
             alt="Flowbite Logo"
           />
           <span className="self-center whitespace-nowrap text-2xl font-semibold dark:text-white">
-            Flowbite
+            MarketPlace
           </span>
         </a>
         <button
@@ -47,19 +47,30 @@ export function NavBar() {
                 className="block rounded bg-blue-700 py-2 pl-3 pr-4 text-white dark:text-white md:bg-transparent md:p-0 md:text-blue-700 md:dark:text-blue-500"
                 aria-current="page"
               >
-                Home
+                Browse
               </Link>
             </li>
             {user.isSignedIn && (
-              <li>
-                <Link
-                  href="/sell-an-item"
-                  className="block rounded bg-blue-700 py-2 pl-3 pr-4 text-white dark:text-white md:bg-transparent md:p-0 md:text-blue-700 md:dark:text-blue-500"
-                  aria-current="page"
-                >
-                  Sell an Item
-                </Link>
-              </li>
+              <>
+                <li>
+                  <Link
+                    href="/offers"
+                    className="block rounded bg-blue-700 py-2 pl-3 pr-4 text-white dark:text-white md:bg-transparent md:p-0 md:text-blue-700 md:dark:text-blue-500"
+                    aria-current="page"
+                  >
+                    Offers
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/sell-an-item"
+                    className="block rounded bg-blue-700 py-2 pl-3 pr-4 text-white dark:text-white md:bg-transparent md:p-0 md:text-blue-700 md:dark:text-blue-500"
+                    aria-current="page"
+                  >
+                    Sell an Item
+                  </Link>
+                </li>
+              </>
             )}
             {!user.isSignedIn && (
               <li>
