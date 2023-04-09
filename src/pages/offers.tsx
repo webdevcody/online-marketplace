@@ -14,9 +14,9 @@ const Home: NextPage = () => {
       </Head>
       <main className="flex min-h-screen flex-col gap-12 bg-gray-800">
         <div className="container mx-auto">
-          <h1 className="mt-12 pl-4 text-4xl">Your Offers</h1>
+          <h1 className="mb-8 mt-12 pl-4 text-4xl">Your Offers</h1>
 
-          <div className="relative overflow-x-auto">
+          <div className="relative mb-16 overflow-x-auto">
             <table className="w-full text-left text-sm text-gray-500 dark:text-gray-400">
               <thead className="bg-gray-50 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
@@ -34,7 +34,7 @@ const Home: NextPage = () => {
                     key={message.id}
                     className="border-b bg-white dark:border-gray-700 dark:bg-gray-800"
                   >
-                    <td className="px-6 py-4">{message.fromUser}</td>
+                    <td className="px-6 py-4">{message.fromUserName}</td>
                     <td className="px-6 py-4">{message.message}</td>
                   </tr>
                 ))}

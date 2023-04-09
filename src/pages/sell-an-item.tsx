@@ -36,8 +36,8 @@ const SellAnItem: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="flex min-h-screen flex-col items-center justify-center bg-gray-800">
-        <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16 ">
-          <h1>Sell an Item</h1>
+        <div className="container flex flex-col gap-12 px-4 py-16 ">
+          <h1 className="text-4xl">Sell an Item</h1>
           <form
             className="flex flex-col gap-4"
             onSubmit={handleSubmit(onSubmit)}

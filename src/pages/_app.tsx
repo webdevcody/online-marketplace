@@ -9,7 +9,7 @@ import { NavBar } from "~/components/NavBar";
 const MyApp: AppType = ({ Component, pageProps }) => {
   return (
     <ClerkProvider {...pageProps}>
-      <div className="light:black dark:text-white">
+      <div className="light:black bg-gray-800 dark:text-white">
         <NavBar />
         <Component {...pageProps} />
       </div>
